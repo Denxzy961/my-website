@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartBeats - The Tree of Life</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+  <header>
+    <h1>SmartBeats</h1>
+    <p>Your home of inspiring music</p>
+  </header>
+
+  <main>
+    <!-- Song Section -->
+    <section class="song">
+      <h2>The Tree of Life</h2>
+      <img src="assets/images/cover.png" alt="Song Cover">
+      <audio controls>
+        <source src="song1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <button onclick="payWithPaystack()">Download Song</button>
+    </section>
+
+    <!-- Lyrics Section -->
+    <section class="lyrics">
+      <h2>Lyrics</h2>
+      <pre>
+(The tree of life by Master of the universe)
+
+[intro]
+
+[Verse 1]
+Can a man take fire to his bosom
+with his clothes not be burned, 
+can a man walk on hot coal with
+his feet not be seared, as righteousness
+tends to life, so he who pursues evil
+pursues it to his own grave.
+
+[Chorus]
+The fruit of the righteous is a Tree
+of life and he who wins shall be wise,
+anxiety in the heart of man causes depression,
+but a prudent man makes it glad.
+
+[Verse 2]
+A fool's wrath is known at once, but a
+prudent man covers shame, and his tongue
+will be speaking like the piercing of a sword.
+
+[Outro]
+Build the walls and foundations of the world
+strong by doing good.
+      </pre>
+    </section>
+
+    <!-- Comment Section -->
+    <section class="comments">
+      <h2>Leave a Comment</h2>
+      <form action="https://formspree.io/f/mwprenok" method="POST">
+        <textarea name="message" placeholder="Write your comment..." required></textarea>
+        <input type="email" name="email" placeholder="Your email (optional)">
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Contact: <a href="mailto:smartbeats5@gmail.com">smartbeats5@gmail.com</a></p>
+    <p>Follow us on Facebook: 
+      <a href="https://facebook.com/SmartBeatsnigeria" target="_blank">SmartBeatsnigeria</a>
+    </p>
+    <p>&copy; 2025 SmartBeats. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function payWithPaystack() {
+      let handler = PaystackPop.setup({
+        key: 'pk_live_53795a3c96c3618aa5a70191f67ae4e722c9d643', // Your public key
+        email: 'smartbeats5@gmail.com',
+        amount: 200 * 100, // 200 Naira in Kobo
+        currency: 'NGN',
+        callback: function(response) {
+          alert('Payment successful! Transaction ref: ' + response.reference);
+          window.location.href = 'song.mp3'; // Start download after payment
+        },
+        onClose: function() {
+          alert('Make payment first!');
+        }
+      });
+      handler.openIframe();
+    }
+  </script>
+</body>
+</html>

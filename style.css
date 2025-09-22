@@ -1,0 +1,157 @@
+/* General Reset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Main Layout */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Song Section */
+.song {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.song img {
+  max-width: 300px;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.song audio {
+  margin: 15px 0;
+  width: 100%;
+}
+
+.song button {
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.song button:hover {
+  background: #218838;
+}
+
+/* Lyrics Section */
+.lyrics {
+  margin-bottom: 30px;
+}
+
+.lyrics h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.lyrics pre {
+  background: #f0f0f0;
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Comment Section */
+.comments {
+  margin-bottom: 30px;
+}
+
+.comments h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.comments form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments textarea {
+  resize: vertical;
+  min-height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.comments input[type="email"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.comments button {
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.comments button:hover {
+  background: #0056b3;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  background: #222;
+  color: #ccc;
+  border-top: 4px solid #444;
+}
+
+footer a {
+  color: #1da1f2;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
