@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartBeats - The Tree of Life</title>
+  <title>SmartBeats</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8T9JR8VK5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F8T9JR8VK5');
+  </script>
 </head>
 <body>
   <header>
@@ -18,11 +27,11 @@
     <section class="song">
       <h2>The Tree of Life</h2>
       <img src="assets/images/cover.png" alt="Song Cover">
-      <audio controls>
+      <audio id="audioPlayer" controls controlsList="nodownload noplaybackrate">
         <source src="song1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
-      <button onclick="payWithPaystack()">Download Song</button>
+      <button id="downloadBtn" onclick="payWithPaystack()">Download Song</button>
     </section>
 
     <!-- Lyrics Section -->
@@ -79,6 +88,13 @@ strong by doing good.
 
   <script>
     function payWithPaystack() {
+      // Track download attempt
+      gtag("event", "download_attempt", {
+        event_category: "Song",
+        event_label: "The Tree of Life",
+        value: 200
+      });
+
       let handler = PaystackPop.setup({
         key: 'pk_live_53795a3c96c3618aa5a70191f67ae4e722c9d643', // Your public key
         email: 'smartbeats5@gmail.com',
@@ -86,7 +102,7 @@ strong by doing good.
         currency: 'NGN',
         callback: function(response) {
           alert('Payment successful! Transaction ref: ' + response.reference);
-          window.location.href = 'song.mp3'; // Start download after payment
+          window.location.href = 'song1.mp3'; // Start download after payment
         },
         onClose: function() {
           alert('Make payment first!');
@@ -94,6 +110,15 @@ strong by doing good.
       });
       handler.openIframe();
     }
+
+    // Track Play Event
+    const audioPlayer = document.getElementById("audioPlayer");
+    audioPlayer.addEventListener("play", function () {
+      gtag("event", "play_song", {
+        event_category: "Song",
+        event_label: "The Tree of Life"
+      });
+    });
   </script>
 </body>
 </html>
